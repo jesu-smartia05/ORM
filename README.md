@@ -6,7 +6,7 @@ To develop a Django application to store and retrieve data from a Book database 
 
 ## Entity Relationship Diagram
 
-Include your ER diagram here
+![image (1)](https://github.com/jesu-smartia05/ORM/assets/148514819/9425b632-d0f5-4f91-92da-8bee02dc3795)
 
 ## DESIGN STEPS
 
@@ -27,21 +27,22 @@ Models.py
 ```
 from django.db import models
 from django.contrib import admin
-class Book_db(models.Model):
-    bookno=models.IntegerField(primary_key="bookno");
-    title=models.CharField(max_length=25);
-    genre=models.CharField(max_length=50);
-    author=models.CharField(max_length=25);
-    price=models.IntegerField();
-class Book_dbAdmin(admin.ModelAdmin):
-    list_display=("bookno","title","genre","author","price");
+class Book_dbs(models.Model):
+    BOOKNUM=models.IntegerField(primary_key="bookno");
+    TITLE=models.CharField(max_length=25);
+    AUTHOR=models.CharField(max_length=50);
+    DATE=models.DateField();
+    LANG=models.CharField(max_langth=20);
+    PRICE=models.IntegerField();
+class Book_dbsAdmin(admin.ModelAdmin):
+    list_display=("BOOKNUM","TITLE","AUTHOR","DATE","LANG","PRICE");
 
 ```
 Admin.py
 ```
 from django.contrib import admin
-from .models import Book_db,Book_dbAdmin
-admin.site.register(Book_db,Book_dbAdmin)
+from .models import Book_dbs,Book_dbsAdmin
+admin.site.register(Book_dbs,Book_dbsAdmin)
 ```
 
 ## OUTPUT
